@@ -4,6 +4,9 @@ other = "Posts"
 [about]
 other = "About"
 
+[books]
+other = "Books"
+
 [writtenBy]
 other = "Written by"
 

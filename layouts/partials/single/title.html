@@ -1,2 +1,8 @@
 <h1 class="post-title">{{ .Title }}</h1>
 <div class="post-line"></div>
+<div class="post-info">
+    {{ range .Param "tags" }}
+    {{ $name := . }}
+    <a href=/tags/{{ $name }}>#{{ $name }}&nbsp;</a>
+    {{ end }}
+</div>
