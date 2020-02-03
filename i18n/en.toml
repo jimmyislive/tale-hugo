@@ -7,6 +7,9 @@ other = "About"
 [books]
 other = "Books"
 
+[projects]
+other = "Projects"
+
 [writtenBy]
 other = "Written by"
 
