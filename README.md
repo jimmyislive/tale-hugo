@@ -1,7 +1,5 @@
 # Tale
 
-[![Build Status](https://travis-ci.com/EmielH/tale-hugo.svg?branch=master)](https://travis-ci.com/EmielH/tale-hugo)
-
 This is a port of the [Tale theme for Jekyll](https://github.com/chesterhow/tale) to Hugo. Tale is a minimal Jekyll theme curated for storytellers. Checkout the demo [here](https://chesterhow.github.io/tale/). I did not design this theme; I only ported it from Jekyll to Hugo.
 
 ![Tale screenshot](https://raw.githubusercontent.com/EmielH/tale-hugo/master/images/screenshot.png)
@@ -88,6 +86,18 @@ Or if you want more control, add a specific entry for each item in your menu:
 
 For menu internationalization/translation, see [Multilingual Mode: Menus](https://gohugo.io/content-management/multilingual/#menus).
 
+### Dark mode
+
+Tale includes a dark mode toggle. This is visible by default. If you don't want this, you can hide it in the
+site configuration.
+
+```
+[params]
+  hideDarkModeToggle = true
+```
+
+You can create your own toggle. Tale includes the `toggleDarkMode()` method that you can call from anywhere.
+
 ### Internationalisation (i18n)
 
 Tale supports using other languages than English. Language files for the texts Tale uses are provided in the `i18n` directory. The default language is English. To switch languages, add the key `defaultContentLanguage` to your `config.toml` file. For example:
@@ -103,12 +113,16 @@ Feel free to submit pull requests for other translations of Tale's texts.
 [Hugo documentation for multilingual sites](//gohugo.io/content-management/multilingual/)
 
 ### Disqus
+
 Tale supports Disqus integration, a comment system that empowers dynamic features to static websites. To install it, just add the key `disqusShortname` in your `config.toml`
-``` toml
+
+```toml
 disqusShortname = "disqus-example"
-``` 
-Add the parameter `comments` in the front-matter of the pages where you want to allow comments 
-``` 
+```
+
+Add the parameter `comments` in the front-matter of the pages where you want to allow comments
+
+```
 ---
 comments: true
 ---
@@ -183,4 +197,5 @@ Thanks
 - to [lucperkins](https://github.com/lucperkins) for the [Fresh theme](https://github.com/lucperkins/hugo-fresh) from which I used some useful snippets of code.
 
 ## License
+
 See [LICENSE](https://github.com/EmielH/tale-hugo/blob/master/LICENSE).

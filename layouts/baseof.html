@@ -3,7 +3,7 @@
     {{ partial "head.html" . }}
     <body>
         {{ partial "header.html" . }}
-        {{ partial "darkmode.html" . }}
+        {{- if not .Site.Params.hideDarkModeToggle }}{{ partial "darkmode.html" . }}{{- end}}
         {{ block "main" . }}{{ end }}
         {{ partial "footer.html" . }}
     </body>
