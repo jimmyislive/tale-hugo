@@ -1,7 +1,5 @@
 # Tale
 
-[![Build Status](https://travis-ci.com/EmielH/tale-hugo.svg?branch=master)](https://travis-ci.com/EmielH/tale-hugo)
-
 This is a port of the [Tale theme for Jekyll](https://github.com/chesterhow/tale) to Hugo. Tale is a minimal Jekyll theme curated for storytellers. Checkout the demo [here](https://chesterhow.github.io/tale/). I did not design this theme; I only ported it from Jekyll to Hugo.
 
 ![Tale screenshot](https://raw.githubusercontent.com/EmielH/tale-hugo/master/images/screenshot.png)
@@ -38,7 +36,7 @@ hugo server -t tale
 
 ### Additional information
 
-For more information, read the official [setup guide](https//gohugo.io/overview/installing/) of Hugo.
+For more information, read the official [setup guide](https://gohugo.io/overview/installing/) of Hugo.
 
 ### Update the theme
 
@@ -51,6 +49,54 @@ git submodule update --remote --rebase
 If you have cloned the theme, you can run `git pull` inside the theme folder.
 
 ## Configuration
+
+### Menu
+
+The top menu uses [Hugo Menus](https://gohugo.io/content-management/menus/), with the name of the menu being `main`. To turn on the menu, follow the steps there - you can either add something like this to the front-matter of your pages:
+
+```
+---
+menu: "main"
+---
+```
+
+... or you can add a menu section to your `config` file:
+
+```
+sectionPagesMenu = "main"
+```
+
+Or if you want more control, add a specific entry for each item in your menu:
+
+```
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    title = "About"
+    url = "/about/"
+    weight = 0
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    title = "Posts"
+    url = "/posts/"
+    weight = 0
+```
+
+For menu internationalization/translation, see [Multilingual Mode: Menus](https://gohugo.io/content-management/multilingual/#menus).
+
+### Dark mode
+
+Tale includes a dark mode toggle. This is visible by default. If you don't want this, you can hide it in the
+site configuration.
+
+```
+[params]
+  hideDarkModeToggle = true
+```
+
+You can create your own toggle. Tale includes the `toggleDarkMode()` method that you can call from anywhere.
 
 ### Internationalisation (i18n)
 
@@ -65,6 +111,36 @@ To translate texts your site uses, add an `i18n` folder to your site.
 Feel free to submit pull requests for other translations of Tale's texts.
 
 [Hugo documentation for multilingual sites](//gohugo.io/content-management/multilingual/)
+
+### Disqus
+
+Tale supports Disqus integration, a comment system that empowers dynamic features to static websites. To install it, just add the key `disqusShortname` in your `config.toml`
+
+```toml
+disqusShortname = "disqus-example"
+```
+
+Add the parameter `comments` in the front-matter of the pages where you want to allow comments
+
+```
+---
+comments: true
+---
+```
+
+### Google Analytics
+
+Tale supports Google Analytics integration using Hugo's provided `google_analytics_async` template.
+
+To enable it, add the `googleAnalytics` tag to your `config.toml`. It will be added on all pages.
+
+```toml
+googleAnalytics = "UA-133700000-0"
+```
+
+### OpenGraph
+
+Tale integrates Hugo's embedded OpenGraph template, enabling rich social previews for your page when it's shared as a link. To see how to configure it, consult the [Hugo OpenGraph template documentation](https://gohugo.io/templates/embedded/#configure-open-graph).
 
 ### Custom summaries
 
@@ -92,8 +168,8 @@ This partial is included at the top of the list of posts on the index page, allo
 The copyright message in the footer uses the name of the author of the site, as defined in `config.toml`. For example:
 
 ```
-[Author]
-    name = "Emiel"
+[Params]
+author = { name = "Emiel" }
 ```
 
 ### Additional CSS files
@@ -114,11 +190,12 @@ css = ["custom.css", "custom2.css"]
 
 ## Acknowledgments
 
-Thanks 
+Thanks
 
 - to [Chester How](//github.com/chesterhow) for creating the original [Tale theme for Jekyll](https://chesterhow.github.io/tale/),
 - to [onedrawingperday](//github.com/onedrawingperday), [bep](//github.com/bep) and [digitalcraftsman](//github.com/digitalcraftsman) for their help in getting the theme working correctly with Hugo,
 - to [lucperkins](https://github.com/lucperkins) for the [Fresh theme](https://github.com/lucperkins/hugo-fresh) from which I used some useful snippets of code.
 
 ## License
+
 See [LICENSE](https://github.com/EmielH/tale-hugo/blob/master/LICENSE).
